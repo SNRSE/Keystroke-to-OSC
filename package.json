@@ -1,0 +1,17 @@
+{
+  "name": "keystroke",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hotkey-listener": "0.0.6",
+    "hotkeys-js": "^3.8.7",
+    "iohook": "^0.9.3",
+    "node-osc": "^6.1.10"
+  }
+}
