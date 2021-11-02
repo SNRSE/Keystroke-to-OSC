@@ -1,10 +1,20 @@
-const ioHook = require('iohook');
+const GlobalKeyboardListener = require("node-global-key-listener");
 const Client = require( 'node-osc');
 const client = new Client.Client('127.0.0.1', 1234);
+const v = new GlobalKeyboardListener.GlobalKeyboardListener();
 
-ioHook.on("keypress", event => {
-  //console.log(event);
-  switch(event.keychar){
+//Log every key that's pressed.
+v.addListener(function (e, down) {
+    if(e.state == "DOWN"){
+        if(e.name in [1,2,3,4,5,6,7,8,9,0]){
+            send(e.name)
+        }
+    }
+    //console.log(        `${e.name} ${e.state == "DOWN" ? "DOWN" : "UP  "} [${e.rawKey._nameRaw}]`    );
+});
+
+function convert(key){
+  switch(key){
   case 49:
       send(1)
   break
@@ -37,8 +47,8 @@ ioHook.on("keypress", event => {
   break
 
   }
-});
-ioHook.start();
+};
+
 function send(number){
     console.log(number)
     client.send('/key', number, () => {

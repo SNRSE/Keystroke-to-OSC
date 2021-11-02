@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gkm": "^0.2.0",
     "hotkey-listener": "0.0.6",
     "hotkeys-js": "^3.8.7",
     "iohook": "^0.9.3",
+    "node-global-key-listener": "0.0.13",
     "node-osc": "^6.1.10"
   }
 }
